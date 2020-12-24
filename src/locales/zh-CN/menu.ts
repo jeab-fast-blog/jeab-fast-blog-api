@@ -49,4 +49,16 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
+  'menu.article': '文章管理',
+  'menu.article.list': '文章列表',
+  'menu.article.add': '添加文章',
+  'menu.category': '分类管理',
+  'menu.category.list': '分类列表',
+  'menu.category.add': '添加分类',
+  'menu.tag': '标签管理',
+  'menu.tag.list': '标签列表',
+  'menu.tag.add': '添加标签',
+  'menu.comment': '评论管理',
+  'menu.user':'用户管理',
+  'menu.setting':'系统管理'
 };

@@ -56,37 +56,64 @@
                 component: './ListTableList',
               },
               {
-                name: '文章管理',
+                name: 'article',
                 icon: 'read',
                 path: '/article',
-                component: './ListTableList',
+                //component: './ListTableList',
+                routes: [
+                  {
+                    name: 'list',
+                    path: '/article/list'
+                  },
+                  {
+                    name: 'add',
+                    path: '/article/add'
+                  }
+                ]
               },
               {
-                name: '分类管理',
+                name: 'category',
                 icon: 'folder',
                 path: '/category',
-                component: './ListTableList',
+                routes: [
+                  {
+                    name: 'list',
+                    path: '/category/list'
+                  },
+                  {
+                    name: 'add',
+                    path: '/category/add'
+                  }
+                ]
               },
               {
-                name: '标签管理',
+                name: 'tag',
                 icon: 'tag',
                 path: '/tag',
-                component: './ListTableList',
+                routes: [
+                  {
+                    name: 'list',
+                    path: '/tag/list'
+                  },
+                  {
+                    name: 'add',
+                    path: '/tag/add'
+                  }
+                ]
               },
               {
-                name: '评论管理',
+                name: 'comment',
                 icon: 'comment',
                 path: '/comment',
-                component: './ListTableList',
               },
               {
-                name: '用户管理',
+                name: 'user',
                 icon: 'user',
                 path: '/userList',
                 component: './ListTableList',
               },
               {
-                name: '系统管理',
+                name: 'setting',
                 icon: 'setting',
                 path: '/system',
                 component: './ListTableList',
