@@ -63,11 +63,13 @@
                 routes: [
                   {
                     name: 'list',
-                    path: '/article/list'
+                    path: '/article/list',
+                    component:'./article/list'
                   },
                   {
                     name: 'add',
-                    path: '/article/add'
+                    path: '/article/add',
+                    component:'./article/add'
                   }
                 ]
               },
@@ -78,11 +80,13 @@
                 routes: [
                   {
                     name: 'list',
-                    path: '/category/list'
+                    path: '/category/list',
+                    component: './category/list'
                   },
                   {
                     name: 'add',
-                    path: '/category/add'
+                    path: '/category/add',
+                    component: './category/add'
                   }
                 ]
               },
@@ -93,11 +97,13 @@
                 routes: [
                   {
                     name: 'list',
-                    path: '/tag/list'
+                    path: '/tag/list',
+                    component: './tag/list'
                   },
                   {
                     name: 'add',
-                    path: '/tag/add'
+                    path: '/tag/add',
+                    component: './tag/add'
                   }
                 ]
               },
@@ -105,19 +111,21 @@
                 name: 'comment',
                 icon: 'comment',
                 path: '/comment',
+                component: './comment'
               },
               {
                 name: 'user',
                 icon: 'user',
-                path: '/userList',
-                component: './ListTableList',
+                path: '/account',
+                component: './account'
               },
               {
                 name: 'setting',
                 icon: 'setting',
                 path: '/system',
-                component: './ListTableList',
+                component: './system',
               },
+              
               {
                 component: './404',
               },
