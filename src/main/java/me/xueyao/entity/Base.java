@@ -18,8 +18,7 @@ import java.util.Date;
 @MappedSuperclass
 public class Base implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String id;
     @Column(name = "removed", columnDefinition = "bit(1) default 0 comment '是否删除 0未删除 1删除'")
     private Boolean removed = false;
     @Column(name = "creator", columnDefinition = "varchar(64) not null comment '创建者'")

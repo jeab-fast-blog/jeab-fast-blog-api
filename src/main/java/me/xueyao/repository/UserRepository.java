@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @date 1/28/21 2:53 PM
  **/
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, String> {
     /**
      * 查询用户信息
      *

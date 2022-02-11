@@ -6,6 +6,7 @@ import me.xueyao.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Simon.Xue
@@ -21,8 +22,18 @@ public class LoginController {
         return userService.login(loginDto);
     }
 
-    @GetMapping("/currentUser/{id}")
-    public R currentUser(@PathVariable("id") Integer id) {
-        return userService.currentUser(id);
+    @GetMapping("/currentUser")
+    public R currentUser() {
+        return userService.currentUser();
+    }
+
+
+    /**
+     * 退出
+     * @return
+     */
+    @PostMapping("/logout")
+    public R logout(HttpServletRequest request) {
+        return userService.logout(request);
     }
 }
