@@ -6,14 +6,14 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author Simon.Xue
- * @date 1/28/21 2:53 PM
+ * @date 2019-12-01 00:23
  **/
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
+
     /**
      * 查询用户信息
-     *
-     * @param username 用户名
+     * @param username
      * @return
      */
     User findByUsername(String username);

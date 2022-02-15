@@ -2,6 +2,9 @@ package me.xueyao.service;
 
 import me.xueyao.base.R;
 import me.xueyao.entity.dto.LoginDto;
+import me.xueyao.entity.dto.UserAddDto;
+import me.xueyao.entity.dto.UserModifyDto;
+import org.springframework.data.domain.Pageable;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,4 +31,38 @@ public interface UserService {
      * @return
      */
     R logout(HttpServletRequest request);
+
+    /**
+     * 创建用户
+     * @param userAddDto
+     * @return
+     */
+    R add(UserAddDto userAddDto);
+
+    /**
+     * 更新用户
+     * @param userModifyDto
+     * @return
+     */
+    R modify(UserModifyDto userModifyDto);
+
+    /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
+    R delete(String userId);
+
+    /**
+     * 查询用户详情
+     * @param userId
+     * @return
+     */
+    R getDetail(String userId);
+    /**
+     * 用户列表
+     * @param pageable
+     * @return
+     */
+    R list(Pageable pageable);
 }

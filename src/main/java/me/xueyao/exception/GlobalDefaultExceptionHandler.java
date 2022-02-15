@@ -2,6 +2,7 @@ package me.xueyao.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import me.xueyao.base.R;
+import me.xueyao.base.RStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,7 +27,7 @@ public class GlobalDefaultExceptionHandler {
     @ExceptionHandler(NoPermissionException.class)
     @ResponseBody
     public R noPermissionException(HttpServletRequest request, Exception e) {
-        return new R(R.CODE_AUTHORITY_ERROR, e.getMessage());
+        return new R(RStatus.NO_PERMISSION.getCode(), e.getMessage());
     }
     
     /**
@@ -36,7 +37,7 @@ public class GlobalDefaultExceptionHandler {
     @ExceptionHandler(ParamIllegalException.class)
     @ResponseBody
     public R paramIllegalException(HttpServletRequest request, ParamIllegalException e) {
-        return R.ofParam(e.getMessage());
+        return R.ofParamError(e.getMessage());
     }
 
 
@@ -48,7 +49,7 @@ public class GlobalDefaultExceptionHandler {
     @ExceptionHandler(TokenException.class)
     @ResponseBody
     public Object tokenException(HttpServletRequest request, Exception e) {
-        return new R(R.CODE_AUTHORITY_ERROR, e.getMessage());
+        return new R(RStatus.UN_AUTHORIZED.getCode(), e.getMessage());
     }
 
     /**
@@ -61,7 +62,7 @@ public class GlobalDefaultExceptionHandler {
     @ResponseBody
     public Object defaultExceptionHandler(HttpServletRequest request,Exception e) {
         log.error("统一异常处理：message = {}", e.getMessage());
-        return R.ofParam(e.getMessage());
+        return R.ofSystemError(e.getMessage());
 
     }
 

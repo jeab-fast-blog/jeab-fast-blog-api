@@ -1,28 +1,45 @@
 package me.xueyao.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
- *
- * @author Simon.Xue
- * @date 1/28/21 9:22 AM
- **/
-@Entity
+ * @description 用户
+ * @author simon
+ */
+@Data
 @Table(name = "user")
-@Getter
-@Setter
+@Entity
 @Accessors(chain = true)
-public class User extends Base {
-    @Column(name = "username", columnDefinition = "varchar(32) not null comment '用户名'")
+@DynamicInsert
+@DynamicUpdate
+public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
+
+    private Integer roleId;
+
     private String username;
-    @Column(name = "password", columnDefinition = "varchar(64) not null comment '密码'")
+
     private String password;
-    @Column(name = "nickname", columnDefinition = "varchar(32) not null default '' comment '昵称'")
+
+    private String salt;
+
     private String nickname;
+
+    private String mobile;
+
+    private String email;
+
+    private Date createTime;
+
+    private Date updateTime;
+
 }
