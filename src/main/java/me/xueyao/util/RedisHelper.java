@@ -9,12 +9,16 @@ import javax.annotation.Resource;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Simon.Xue
+ * @date 2022-03-08 13:04:04
+ */
 @Component
 public class RedisHelper {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
-    @Resource(name = "stringRedisTemplate")
+    @Resource
     private ValueOperations<String, String> stringRedisTemplate;
 
     /**
