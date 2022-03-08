@@ -16,9 +16,15 @@ public class InterceptorAdapterConfig implements WebMvcConfigurer {
     @Resource
     private TokenInterceptor tokenInterceptor;
 
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(tokenInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/login");
+                .excludePathPatterns("/login")
+                .excludePathPatterns("/**/doc.*",
+                        "/**/swagger-ui.*",
+                        "/**/swagger-resources",
+                        "/**/webjars/**",
+                        "/**/v2/api-docs/**");
     }
 }

@@ -1,9 +1,12 @@
 package me.xueyao.service;
 
+import cn.hutool.core.lang.tree.Tree;
 import me.xueyao.base.R;
 import me.xueyao.entity.dto.CategoryAddDto;
 import me.xueyao.entity.dto.CategoryModifyDto;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 /**
  * @author Simon.Xue
@@ -43,4 +46,10 @@ public interface CategoryService {
      * @return
      */
     R list(Pageable pageable);
+
+    /**
+     * 获得树型结构数据
+     * @return
+     */
+    List<Tree<String>> getTree();
 }

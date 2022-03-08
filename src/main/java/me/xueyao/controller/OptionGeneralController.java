@@ -1,7 +1,8 @@
 package me.xueyao.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.OptionGeneralAddDto;
 import me.xueyao.entity.dto.OptionGeneralModifyDto;
 import me.xueyao.service.OptionGeneralService;
 import org.springframework.validation.annotation.Validated;
@@ -13,27 +14,22 @@ import javax.annotation.Resource;
  * @author Simon.Xue
  * @date 2019-12-11 13:33
  **/
+@Api(tags = "常规选项")
 @RestController
 @RequestMapping("/optionGeneral")
 public class OptionGeneralController {
     @Resource
     private OptionGeneralService optionGeneralService;
 
-    @PostMapping("/add")
-    public R add(@Validated @RequestBody OptionGeneralAddDto optionGeneralAddDto) {
-        return optionGeneralService.add(optionGeneralAddDto);
-    }
 
+    @ApiOperation(value = "更新")
     @PutMapping("/modify")
     public R modify(@Validated @RequestBody OptionGeneralModifyDto optionGeneralModifyDto) {
         return optionGeneralService.modify(optionGeneralModifyDto);
     }
 
-    @DeleteMapping("/delete/{optionGeneralId}")
-    public R delete(@PathVariable("optionGeneralId") Integer optionGeneralId) {
-        return optionGeneralService.delete(optionGeneralId);
-    }
 
+    @ApiOperation(value = "查询详情")
     @GetMapping("/getDetail/{optionGeneralId}")
     public R getDetail(@PathVariable("optionGeneralId") Integer optionGeneralId) {
         return optionGeneralService.getDetail(optionGeneralId);

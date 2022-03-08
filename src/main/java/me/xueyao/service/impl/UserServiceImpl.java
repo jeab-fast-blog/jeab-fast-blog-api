@@ -4,7 +4,6 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.IdUtil;
 import me.xueyao.base.R;
 import me.xueyao.constant.Constant;
-import me.xueyao.entity.Role;
 import me.xueyao.entity.User;
 import me.xueyao.entity.dto.LoginDto;
 import me.xueyao.entity.dto.UserAddDto;
@@ -17,7 +16,6 @@ import me.xueyao.util.BeanCompareUtils;
 import me.xueyao.util.CurrentUserUtil;
 import me.xueyao.util.RedisHelper;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -70,16 +68,6 @@ public class UserServiceImpl implements UserService {
         User user = userOptional.get();
         BeanUtils.copyProperties(userModifyDto, user, BeanCompareUtils.getEmptyPropertyNames(userModifyDto));
 
-        if (null != userModifyDto.getRoleId()) {
-            Example<Role> roleExample = Example.of(new Role().setId(userModifyDto.getRoleId()));
-            Optional<Role> roleOptional = roleRepository.findOne(roleExample);
-
-            if (!roleOptional.isPresent()) {
-                return R.ofParamError("该角色不存在");
-            }
-            user.setRoleId(userModifyDto.getRoleId());
-
-        }
         userRepository.save(user);
 
         return R.ofSuccess("更新用户成功");

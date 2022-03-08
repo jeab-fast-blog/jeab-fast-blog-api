@@ -1,5 +1,6 @@
 package me.xueyao.entity.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -21,35 +22,43 @@ public class PostAddDto implements Serializable {
     /**
      * 文章作者
      */
+    @ApiModelProperty(value = "文章作者")
     private Integer userId;
     /**
      * 文章时间
      */
+    @ApiModelProperty(value = "文章时间")
     private Date postDate;
     /**
      * 文章标题
      */
+    @ApiModelProperty(value = "文章标题")
     private String postTitle;
     /**
      * 文章内容
      */
+    @ApiModelProperty(value = "文章内容")
     private String postContent;
     /**
      * 分类id
      */
+    @ApiModelProperty(value = "分类id")
     private Integer categoryId;
     /**
      * 文章路径
      */
+    @ApiModelProperty(value = "文章路径")
     private String postPathNumber;
     /**
      * 标签id
      */
+    @ApiModelProperty(value = "标签id")
     private Integer tagsId;
 
     /**
      * 是否删除
      */
-    private Integer isDeleted;
+    @ApiModelProperty(value = "是否删除")
+    private Integer useDeleted;
 
 }

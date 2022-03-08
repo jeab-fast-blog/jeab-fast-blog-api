@@ -1,5 +1,6 @@
 package me.xueyao.entity.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @Data
 public class PermissionModifyDto implements Serializable {
     private Integer id;
+    @ApiModelProperty(value = "")
     private String permissionName;
 
 }

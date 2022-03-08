@@ -1,5 +1,6 @@
 package me.xueyao.entity.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -16,10 +17,12 @@ public class TagAddDto implements Serializable {
     /**
      * 标签名
      */
+    @ApiModelProperty(value = "标签名")
     private String name;
     /**
      * 别名
      */
+    @ApiModelProperty(value = "别名")
     private String alias;
 
 

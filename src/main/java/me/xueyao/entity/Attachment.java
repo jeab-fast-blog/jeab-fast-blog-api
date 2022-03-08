@@ -2,6 +2,7 @@ package me.xueyao.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
@@ -14,36 +15,31 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @description: 常规选项
+ * @description: 评论
  * @author: Simon.Xue
- * @date: 2019-02-26 12:37
+ * @date 2022-03-07 16:55:49
  **/
 @Data
-@Table(name = "option_general")
+@Table(name = "attachment")
 @Entity
 @Where(clause = "use_deleted = 0")
-@SQLDelete(sql = "update option_general set use_deleted = 1 where id = ?")
+@Accessors(chain = true)
+@SQLDelete(sql = "update attachment set use_deleted = 1 where id = ?")
 @DynamicInsert
 @DynamicUpdate
-public class OptionGeneral implements Serializable {
-
+public class Attachment implements Serializable {
     @Id
     private Integer id;
     /**
-     * 网站标题
+     * 名称
      */
-    @ApiModelProperty(value = "网站标题")
-    private String siteTitle;
+    @ApiModelProperty(value = "名称")
+    private String name;
     /**
-     * 网站副标题
+     * 是否删除
      */
-    @ApiModelProperty(value = "网站副标题")
-    private String siteSecondTitle;
-    /**
-     * 站点地址
-     */
-    @ApiModelProperty(value = "站点地址")
-    private String siteAddress;
+    @ApiModelProperty(value = "是否删除")
+    private Integer useDeleted;
     /**
      * 创建时间
      */
@@ -55,7 +51,15 @@ public class OptionGeneral implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
-    @ApiModelProperty(value = "")
-    private Integer useDeleted;
+    /**
+     * 文件大小
+     */
+    @ApiModelProperty(value = "文件大小")
+    private Integer size;
+    /**
+     * 类型
+     */
+    @ApiModelProperty(value = "类型")
+    private String fileType;
 
 }

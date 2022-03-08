@@ -1,5 +1,6 @@
 package me.xueyao.entity.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -19,14 +20,17 @@ public class OptionGeneralModifyDto implements Serializable {
     /**
      * 网站标题
      */
+    @ApiModelProperty(value = "网站标题")
     private String siteTitle;
     /**
      * 网站副标题
      */
+    @ApiModelProperty(value = "网站副标题")
     private String siteSecondTitle;
     /**
      * 站点地址
      */
+    @ApiModelProperty(value = "站点地址")
     private String siteAddress;
 
 }

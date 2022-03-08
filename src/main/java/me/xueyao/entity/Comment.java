@@ -2,6 +2,7 @@ package me.xueyao.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
@@ -14,36 +15,36 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @description: 常规选项
+ * @description: 评论
  * @author: Simon.Xue
- * @date: 2019-02-26 12:37
+ * @date 2022-03-07 16:55:49
  **/
 @Data
-@Table(name = "option_general")
+@Table(name = "comment")
 @Entity
 @Where(clause = "use_deleted = 0")
-@SQLDelete(sql = "update option_general set use_deleted = 1 where id = ?")
+@Accessors(chain = true)
+@SQLDelete(sql = "update comment set use_deleted = 1 where id = ?")
 @DynamicInsert
 @DynamicUpdate
-public class OptionGeneral implements Serializable {
-
+public class Comment implements Serializable {
     @Id
     private Integer id;
     /**
-     * 网站标题
+     * 名称
      */
-    @ApiModelProperty(value = "网站标题")
-    private String siteTitle;
+    @ApiModelProperty(value = "名称")
+    private String name;
     /**
-     * 网站副标题
+     * 正文
      */
-    @ApiModelProperty(value = "网站副标题")
-    private String siteSecondTitle;
+    @ApiModelProperty(value = "正文")
+    private String content;
     /**
-     * 站点地址
+     * 是否删除
      */
-    @ApiModelProperty(value = "站点地址")
-    private String siteAddress;
+    @ApiModelProperty(value = "是否删除")
+    private Integer useDeleted;
     /**
      * 创建时间
      */
@@ -55,7 +56,15 @@ public class OptionGeneral implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
-    @ApiModelProperty(value = "")
-    private Integer useDeleted;
+    /**
+     * 上层ID
+     */
+    @ApiModelProperty(value = "上层ID")
+    private Integer parentId;
+    /**
+     * 文章ID
+     */
+    @ApiModelProperty(value = "文章ID")
+    private Integer postId;
 
 }

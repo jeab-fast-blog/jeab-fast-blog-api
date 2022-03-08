@@ -1,5 +1,6 @@
 package me.xueyao.controller;
 
+import io.swagger.annotations.Api;
 import me.xueyao.base.R;
 import me.xueyao.entity.dto.RoleAddDto;
 import me.xueyao.entity.dto.RoleModifyDto;
@@ -14,6 +15,7 @@ import javax.annotation.Resource;
  * @author Simon.Xue
  * @date 2019-12-11 13:45
  **/
+@Api(tags = "角色管理")
 @RestController
 @RequestMapping("/role")
 public class RoleController {

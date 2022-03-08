@@ -1,5 +1,6 @@
 package me.xueyao.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -17,17 +18,21 @@ import java.time.LocalDateTime;
 @Data
 @Table(name = "permission")
 @Entity
-@SQLDelete(sql = "update permission set is_deleted = 1 where id = ?")
+@SQLDelete(sql = "update permission set use_deleted = 1 where id = ?")
 @DynamicInsert
 @DynamicUpdate
 public class Permission implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @ApiModelProperty(value = "")
     private String permissionName;
+    @ApiModelProperty(value = "")
     private LocalDateTime createTime;
+    @ApiModelProperty(value = "")
     private LocalDateTime updateTime;
-    private Integer isDeleted;
+    @ApiModelProperty(value = "")
+    private Integer useDeleted;
 
 
 }

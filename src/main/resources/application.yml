@@ -1,8 +1,6 @@
 
 server:
-  port: 8090
-  servlet:
-    context-path: /
+  port: 9999
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -25,3 +23,6 @@ spring:
         max-wait: -1ms
         max-idle: 10
         min-idle: 5
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

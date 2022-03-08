@@ -1,5 +1,6 @@
 package me.xueyao.entity.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,5 +15,6 @@ public class RoleAddDto implements Serializable {
     /**
      * 角色名
      */
+    @ApiModelProperty(value = "角色名")
     private String roleName;
 }

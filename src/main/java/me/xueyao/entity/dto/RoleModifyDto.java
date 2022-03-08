@@ -17,5 +17,5 @@ public class RoleModifyDto implements Serializable {
      */
     private String roleName;
 
-    private Integer isDeleted;
+    private Integer useDeleted;
 }

@@ -1,5 +1,6 @@
 package me.xueyao.controller;
 
+import io.swagger.annotations.Api;
 import me.xueyao.base.R;
 import me.xueyao.entity.dto.PermissionAddDto;
 import me.xueyao.entity.dto.PermissionModifyDto;
@@ -14,6 +15,7 @@ import javax.annotation.Resource;
  * @author Simon.Xue
  * @date 2019-12-11 13:43
  **/
+@Api(tags = "权限管理")
 @RestController
 @RequestMapping("/permission")
 public class PermissionController {
