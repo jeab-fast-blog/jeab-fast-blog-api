@@ -31,20 +31,20 @@ public class UserController {
     }
 
     @ApiOperation(value = "修改用户")
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody UserModifyDto userModifyDto) {
         return userService.modify(userModifyDto);
     }
 
     @ApiOperation(value = "删除用户")
-    @DeleteMapping("/delete")
+    @GetMapping("/delete")
     public R delete(@RequestParam("userId") String userId) {
         return userService.delete(userId);
     }
 
     @ApiOperation(value = "查询用户详情")
-    @GetMapping("/getDetail/{userId}")
-    public R getDetail(@PathVariable("userId") String userId) {
+    @GetMapping("/getDetail")
+    public R getDetail(@RequestParam("userId") String userId) {
         return userService.getDetail(userId);
     }
 

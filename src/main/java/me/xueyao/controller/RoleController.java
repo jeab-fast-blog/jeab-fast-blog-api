@@ -28,18 +28,18 @@ public class RoleController {
         return roleService.add(roleAddDto);
     }
 
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody RoleModifyDto roleModifyDto) {
         return roleService.modify(roleModifyDto);
     }
 
-    @DeleteMapping("/delete/{roleId}")
-    public R delete(@PathVariable("roleId") Integer roleId) {
+    @GetMapping("/delete")
+    public R delete(@RequestParam("roleId") Integer roleId) {
         return roleService.delete(roleId);
     }
 
-    @GetMapping("/getDetail/{roleId}")
-    public R getDetail(@PathVariable("roleId") Integer roleId) {
+    @GetMapping("/getDetail")
+    public R getDetail(@RequestParam("roleId") Integer roleId) {
         return roleService.getDetail(roleId);
     }
 

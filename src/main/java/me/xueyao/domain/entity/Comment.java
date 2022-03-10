@@ -42,7 +42,7 @@ public class Comment implements Serializable {
      * 是否删除
      */
     @ApiModelProperty(value = "是否删除")
-    @Column(name = "user_deleted", columnDefinition = "bit(1) default 0 comment '是否删除 0未删除 1删除'")
+    @Column(name = "use_deleted", columnDefinition = "bit(1) default 0 comment '是否删除 0未删除 1删除'")
     private Integer useDeleted;
     /**
      * 创建时间

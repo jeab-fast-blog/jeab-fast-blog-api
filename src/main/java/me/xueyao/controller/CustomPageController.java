@@ -31,14 +31,14 @@ public class CustomPageController {
 
 
     @ApiOperation(value = "修改页面")
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody CustomPageModifyDto customPageModifyDto) {
         return pageService.modify(customPageModifyDto);
     }
 
     @ApiOperation(value = "删除页面")
-    @DeleteMapping("/delete/{pageId}")
-    public R delete(@PathVariable("pageId") Integer pageId) {
+    @GetMapping("/delete")
+    public R delete(@RequestParam("pageId") Integer pageId) {
         return pageService.delete(pageId);
     }
 

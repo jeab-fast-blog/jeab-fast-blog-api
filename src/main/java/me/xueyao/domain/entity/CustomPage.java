@@ -21,7 +21,6 @@ import java.time.LocalDateTime;
 @Accessors(chain = true)
 @Where(clause = "use_deleted = 0")
 @SQLDelete(sql = "update custom_page set use_deleted = 1 where id = ?")
-
 public class CustomPage implements Serializable {
 
     @Id
@@ -32,7 +31,7 @@ public class CustomPage implements Serializable {
      * 页面作者
      */
     @ApiModelProperty(value = "页面作者")
-    @Column(name = "user_deleted", columnDefinition = "int comment '页面作者'")
+    @Column(name = "use_id", columnDefinition = "int comment '页面作者'")
     private Integer userId;
     /**
      * 页面时间

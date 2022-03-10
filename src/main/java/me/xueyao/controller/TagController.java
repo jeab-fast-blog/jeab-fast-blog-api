@@ -32,22 +32,22 @@ public class TagController {
 
 
     @ApiOperation(value = "更新标签")
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody TagModifyDto tagModifyDto) {
         return tagService.modify(tagModifyDto);
     }
 
 
     @ApiOperation(value = "删除标签")
-    @DeleteMapping("/delete/{tagId}")
-    public R delete(@PathVariable("tagId") Integer tagId) {
+    @GetMapping("/delete")
+    public R delete(@RequestParam("tagId") Integer tagId) {
         return tagService.delete(tagId);
     }
 
 
     @ApiOperation(value = "查看标签详情")
-    @GetMapping("/getDetail/{tagId}")
-    public R getDetail(@PathVariable("tagId") Integer tagId) {
+    @GetMapping("/getDetail")
+    public R getDetail(@RequestParam("tagId") Integer tagId) {
         return tagService.getDetail(tagId);
     }
 

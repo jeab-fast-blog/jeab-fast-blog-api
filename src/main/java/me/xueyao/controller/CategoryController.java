@@ -33,20 +33,20 @@ public class CategoryController {
 
 
     @ApiOperation(value = "修改分类")
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody CategoryModifyDto categoryModifyDto) {
         return categoryService.modify(categoryModifyDto);
     }
 
     @ApiOperation(value = "删除分类")
-    @DeleteMapping("/delete/{categoryId}")
-    public R delete(@PathVariable("categoryId") Integer categoryId) {
+    @GetMapping("/delete")
+    public R delete(@RequestParam("categoryId") Integer categoryId) {
         return categoryService.delete(categoryId);
     }
 
     @ApiOperation(value = "获得分类详情")
-    @GetMapping("/getDetail/{categoryId}")
-    public R getDetail(@PathVariable("categoryId") Integer categoryId) {
+    @GetMapping("/getDetail")
+    public R getDetail(@RequestParam("categoryId") Integer categoryId) {
         return categoryService.getDetail(categoryId);
     }
 

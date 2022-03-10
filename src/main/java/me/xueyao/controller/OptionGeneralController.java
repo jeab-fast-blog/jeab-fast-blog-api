@@ -23,15 +23,15 @@ public class OptionGeneralController {
 
 
     @ApiOperation(value = "更新")
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody OptionGeneralModifyDto optionGeneralModifyDto) {
         return optionGeneralService.modify(optionGeneralModifyDto);
     }
 
 
     @ApiOperation(value = "查询详情")
-    @GetMapping("/getDetail/{optionGeneralId}")
-    public R getDetail(@PathVariable("optionGeneralId") Integer optionGeneralId) {
+    @GetMapping("/getDetail")
+    public R getDetail(@RequestParam("optionGeneralId") Integer optionGeneralId) {
         return optionGeneralService.getDetail(optionGeneralId);
     }
 }

@@ -30,20 +30,20 @@ public class PostController {
     }
 
     @ApiOperation(value = "修改文章")
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody PostModifyDto postModifyDto) {
         return postService.modify(postModifyDto);
     }
 
     @ApiOperation(value = "删除文章")
-    @DeleteMapping("/delete/{postId}")
-    public R delete(@PathVariable("postId") Integer postId) {
+    @GetMapping("/delete")
+    public R delete(@RequestParam("postId") Integer postId) {
         return postService.delete(postId);
     }
 
     @ApiOperation(value = "获得文章详情")
-    @GetMapping("/getDetail/{postId}")
-    public R getDetail(@PathVariable("postId") Integer postId) {
+    @GetMapping("/getDetail")
+    public R getDetail(@RequestParam("postId") Integer postId) {
         return postService.getDetail(postId);
     }
 

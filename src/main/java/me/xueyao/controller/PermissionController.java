@@ -28,19 +28,19 @@ public class PermissionController {
         return permissionService.add(permissionAddDto);
     }
 
-    @PutMapping("/modify")
+    @PostMapping("/modify")
     public R modify(@Validated @RequestBody PermissionModifyDto permissionModifyDto) {
         return permissionService.modify(permissionModifyDto);
     }
 
 
-    @DeleteMapping("/delete/{permissionId}")
-    public R delete(@PathVariable("permissionId") Integer permissionId) {
+    @GetMapping("/delete")
+    public R delete(@RequestParam("permissionId") Integer permissionId) {
         return permissionService.delete(permissionId);
     }
 
-    @GetMapping("/getDetail/{permissionId}")
-    public R getDetail(@PathVariable("permissionId") Integer permissionId) {
+    @GetMapping("/getDetail")
+    public R getDetail(@RequestParam("permissionId") Integer permissionId) {
         return permissionService.getDetail(permissionId);
     }
 
