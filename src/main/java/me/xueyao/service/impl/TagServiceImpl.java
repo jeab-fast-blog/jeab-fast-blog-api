@@ -1,9 +1,9 @@
 package me.xueyao.service.impl;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.Tag;
-import me.xueyao.entity.dto.TagAddDto;
-import me.xueyao.entity.dto.TagModifyDto;
+import me.xueyao.domain.entity.Tag;
+import me.xueyao.domain.dto.TagAddDto;
+import me.xueyao.domain.dto.TagModifyDto;
 import me.xueyao.repository.TagRepository;
 import me.xueyao.service.TagService;
 import me.xueyao.util.BeanCompareUtils;

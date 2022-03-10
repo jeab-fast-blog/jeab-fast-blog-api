@@ -1,8 +1,8 @@
 package me.xueyao.service.impl;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.RolePermission;
-import me.xueyao.entity.dto.RolePermissionAddDto;
+import me.xueyao.domain.entity.RolePermission;
+import me.xueyao.domain.dto.RolePermissionAddDto;
 import me.xueyao.repository.RolePermissionRepository;
 import me.xueyao.service.RolePermissionService;
 import org.springframework.beans.BeanUtils;

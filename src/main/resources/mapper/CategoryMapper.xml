@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.xueyao.mapper.CategoryMapper">
+    <select id="findAll" resultType="me.xueyao.domain.vo.CategoryPageVo">
+        SELECT A.*,B.postNum as articleNum FROM CATEGORY A
+            LEFT JOIN (SELECT category_id,count(*) as postNum FROM POST GROUP BY category_id) AS B ON A.ID = B.category_id
+    </select>
+</mapper>

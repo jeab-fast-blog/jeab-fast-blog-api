@@ -5,17 +5,19 @@ import cn.hutool.core.lang.tree.Tree;
 import cn.hutool.core.lang.tree.TreeNode;
 import cn.hutool.core.lang.tree.TreeNodeConfig;
 import cn.hutool.core.lang.tree.TreeUtil;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import me.xueyao.base.R;
-import me.xueyao.entity.Category;
-import me.xueyao.entity.dto.CategoryAddDto;
-import me.xueyao.entity.dto.CategoryModifyDto;
+import me.xueyao.domain.entity.Category;
+import me.xueyao.domain.dto.CategoryAddDto;
+import me.xueyao.domain.dto.CategoryModifyDto;
+import me.xueyao.domain.vo.CategoryPageVo;
+import me.xueyao.mapper.CategoryMapper;
 import me.xueyao.repository.CategoryRepository;
 import me.xueyao.service.CategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -34,6 +36,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Resource
     private CategoryRepository categoryRepository;
+    @Resource
+    private CategoryMapper categoryMapper;
 
     @Override
     public R add(CategoryAddDto categoryAddDto) {
@@ -87,9 +91,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public R list(Pageable pageable) {
-        Page<Category> categoryPage = categoryRepository.findAll(pageable);
-        return R.ofSuccess("查询成功", categoryPage);
+    public R list(Integer pageNum, Integer pageSize) {
+        Page<CategoryPageVo> page = new Page<>(pageNum, pageSize);
+        IPage<CategoryPageVo> iPage = categoryMapper.findAll(page);
+        return R.ofSuccess("查询成功", iPage);
     }
 
     @Override

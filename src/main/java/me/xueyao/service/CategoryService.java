@@ -2,9 +2,8 @@ package me.xueyao.service;
 
 import cn.hutool.core.lang.tree.Tree;
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.CategoryAddDto;
-import me.xueyao.entity.dto.CategoryModifyDto;
-import org.springframework.data.domain.Pageable;
+import me.xueyao.domain.dto.CategoryAddDto;
+import me.xueyao.domain.dto.CategoryModifyDto;
 
 import java.util.List;
 
@@ -42,10 +41,11 @@ public interface CategoryService {
     R getDetail(Integer categoryId);
     /**
      * 分类列表
-     * @param pageable
+     * @param pageNum
+     * @param pageSize
      * @return
      */
-    R list(Pageable pageable);
+    R list(Integer pageNum, Integer pageSize);
 
     /**
      * 获得树型结构数据

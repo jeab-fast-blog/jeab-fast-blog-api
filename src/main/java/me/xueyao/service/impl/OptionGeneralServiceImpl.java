@@ -1,9 +1,9 @@
 package me.xueyao.service.impl;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.OptionGeneral;
-import me.xueyao.entity.dto.OptionGeneralAddDto;
-import me.xueyao.entity.dto.OptionGeneralModifyDto;
+import me.xueyao.domain.entity.OptionGeneral;
+import me.xueyao.domain.dto.OptionGeneralAddDto;
+import me.xueyao.domain.dto.OptionGeneralModifyDto;
 import me.xueyao.repository.OptionGeneralRepository;
 import me.xueyao.service.OptionGeneralService;
 import me.xueyao.util.BeanCompareUtils;

@@ -3,7 +3,7 @@ package me.xueyao.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.LoginDto;
+import me.xueyao.domain.dto.LoginDto;
 import me.xueyao.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

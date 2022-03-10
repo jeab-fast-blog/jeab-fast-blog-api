@@ -1,8 +1,8 @@
 package me.xueyao.service;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.PostAddDto;
-import me.xueyao.entity.dto.PostModifyDto;
+import me.xueyao.domain.dto.PostAddDto;
+import me.xueyao.domain.dto.PostModifyDto;
 import org.springframework.data.domain.Pageable;
 
 /**

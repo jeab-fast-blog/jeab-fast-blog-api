@@ -1,13 +1,13 @@
 package me.xueyao.service.impl;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.Permission;
-import me.xueyao.entity.Role;
-import me.xueyao.entity.RolePermission;
-import me.xueyao.entity.dto.RoleAddDto;
-import me.xueyao.entity.dto.RoleModifyDto;
-import me.xueyao.entity.vo.PermissionVo;
-import me.xueyao.entity.vo.RolePermissionsVo;
+import me.xueyao.domain.entity.Permission;
+import me.xueyao.domain.entity.Role;
+import me.xueyao.domain.entity.RolePermission;
+import me.xueyao.domain.dto.RoleAddDto;
+import me.xueyao.domain.dto.RoleModifyDto;
+import me.xueyao.domain.vo.PermissionVo;
+import me.xueyao.domain.vo.RolePermissionsVo;
 import me.xueyao.repository.PermissionRepository;
 import me.xueyao.repository.RolePermissionRepository;
 import me.xueyao.repository.RoleRepository;

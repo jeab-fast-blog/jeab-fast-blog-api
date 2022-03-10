@@ -2,7 +2,7 @@ package me.xueyao.util;
 
 import cn.hutool.core.util.StrUtil;
 import me.xueyao.constant.Constant;
-import me.xueyao.entity.vo.UserVO;
+import me.xueyao.domain.vo.UserVO;
 
 import javax.servlet.http.HttpServletRequest;
 

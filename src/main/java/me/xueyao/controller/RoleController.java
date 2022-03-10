@@ -2,8 +2,8 @@ package me.xueyao.controller;
 
 import io.swagger.annotations.Api;
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.RoleAddDto;
-import me.xueyao.entity.dto.RoleModifyDto;
+import me.xueyao.domain.dto.RoleAddDto;
+import me.xueyao.domain.dto.RoleModifyDto;
 import me.xueyao.service.RoleService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;

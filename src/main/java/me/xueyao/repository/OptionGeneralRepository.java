@@ -1,6 +1,6 @@
 package me.xueyao.repository;
 
-import me.xueyao.entity.OptionGeneral;
+import me.xueyao.domain.entity.OptionGeneral;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

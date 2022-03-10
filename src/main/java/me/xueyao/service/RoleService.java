@@ -1,8 +1,8 @@
 package me.xueyao.service;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.RoleAddDto;
-import me.xueyao.entity.dto.RoleModifyDto;
+import me.xueyao.domain.dto.RoleAddDto;
+import me.xueyao.domain.dto.RoleModifyDto;
 import org.springframework.data.domain.Pageable;
 
 /**

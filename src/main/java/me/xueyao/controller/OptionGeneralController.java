@@ -3,7 +3,7 @@ package me.xueyao.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.OptionGeneralModifyDto;
+import me.xueyao.domain.dto.OptionGeneralModifyDto;
 import me.xueyao.service.OptionGeneralService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

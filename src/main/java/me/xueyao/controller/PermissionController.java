@@ -2,8 +2,8 @@ package me.xueyao.controller;
 
 import io.swagger.annotations.Api;
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.PermissionAddDto;
-import me.xueyao.entity.dto.PermissionModifyDto;
+import me.xueyao.domain.dto.PermissionAddDto;
+import me.xueyao.domain.dto.PermissionModifyDto;
 import me.xueyao.service.PermissionService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;

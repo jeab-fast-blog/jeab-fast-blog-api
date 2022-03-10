@@ -1,9 +1,9 @@
 package me.xueyao.service;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.LoginDto;
-import me.xueyao.entity.dto.UserAddDto;
-import me.xueyao.entity.dto.UserModifyDto;
+import me.xueyao.domain.dto.LoginDto;
+import me.xueyao.domain.dto.UserAddDto;
+import me.xueyao.domain.dto.UserModifyDto;
 import org.springframework.data.domain.Pageable;
 
 import javax.servlet.http.HttpServletRequest;

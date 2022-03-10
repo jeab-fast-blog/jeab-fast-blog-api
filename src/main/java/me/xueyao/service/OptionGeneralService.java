@@ -1,8 +1,8 @@
 package me.xueyao.service;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.OptionGeneralAddDto;
-import me.xueyao.entity.dto.OptionGeneralModifyDto;
+import me.xueyao.domain.dto.OptionGeneralAddDto;
+import me.xueyao.domain.dto.OptionGeneralModifyDto;
 
 /**
  * @author Simon.Xue

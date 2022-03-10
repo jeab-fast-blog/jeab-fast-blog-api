@@ -1,8 +1,8 @@
 package me.xueyao.service;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.TagAddDto;
-import me.xueyao.entity.dto.TagModifyDto;
+import me.xueyao.domain.dto.TagAddDto;
+import me.xueyao.domain.dto.TagModifyDto;
 import org.springframework.data.domain.Pageable;
 
 /**

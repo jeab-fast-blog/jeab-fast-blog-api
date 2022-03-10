@@ -1,9 +1,9 @@
 package me.xueyao.service.impl;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.Permission;
-import me.xueyao.entity.dto.PermissionAddDto;
-import me.xueyao.entity.dto.PermissionModifyDto;
+import me.xueyao.domain.entity.Permission;
+import me.xueyao.domain.dto.PermissionAddDto;
+import me.xueyao.domain.dto.PermissionModifyDto;
 import me.xueyao.repository.PermissionRepository;
 import me.xueyao.service.PermissionService;
 import org.springframework.beans.BeanUtils;

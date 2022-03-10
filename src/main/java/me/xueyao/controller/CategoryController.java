@@ -4,10 +4,9 @@ import cn.hutool.core.lang.tree.Tree;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.CategoryAddDto;
-import me.xueyao.entity.dto.CategoryModifyDto;
+import me.xueyao.domain.dto.CategoryAddDto;
+import me.xueyao.domain.dto.CategoryModifyDto;
 import me.xueyao.service.CategoryService;
-import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,8 +52,9 @@ public class CategoryController {
 
     @ApiOperation(value = "分类列表")
     @GetMapping("/list")
-    public R list(Pageable pageable) {
-        return categoryService.list(pageable);
+    public R list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                  @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+        return categoryService.list(pageNum, pageSize);
     }
 
     @ApiOperation(value = "获得分类的树型结构")

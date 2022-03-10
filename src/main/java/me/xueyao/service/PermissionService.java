@@ -1,8 +1,8 @@
 package me.xueyao.service;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.dto.PermissionAddDto;
-import me.xueyao.entity.dto.PermissionModifyDto;
+import me.xueyao.domain.dto.PermissionAddDto;
+import me.xueyao.domain.dto.PermissionModifyDto;
 import org.springframework.data.domain.Pageable;
 
 /**

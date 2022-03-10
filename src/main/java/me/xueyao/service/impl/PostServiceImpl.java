@@ -1,9 +1,9 @@
 package me.xueyao.service.impl;
 
 import me.xueyao.base.R;
-import me.xueyao.entity.Post;
-import me.xueyao.entity.dto.PostAddDto;
-import me.xueyao.entity.dto.PostModifyDto;
+import me.xueyao.domain.entity.Post;
+import me.xueyao.domain.dto.PostAddDto;
+import me.xueyao.domain.dto.PostModifyDto;
 import me.xueyao.repository.PostRepository;
 import me.xueyao.service.PostService;
 import me.xueyao.util.BeanCompareUtils;
