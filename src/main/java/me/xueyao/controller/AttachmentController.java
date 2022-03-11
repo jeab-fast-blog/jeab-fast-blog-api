@@ -8,6 +8,7 @@ import me.xueyao.domain.dto.AttachmentModifyDto;
 import me.xueyao.service.AttachmentService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 
@@ -27,6 +28,13 @@ public class AttachmentController {
     @PostMapping("/add")
     public R add(@Validated @RequestBody AttachmentAddDto attachmentAddDto) {
         return attachmentService.add(attachmentAddDto);
+    }
+
+
+    @ApiOperation(value = "上传附件")
+    @PostMapping("/upload")
+    public R upload(@RequestParam MultipartFile file) {
+        return attachmentService.upload(file);
     }
 
 

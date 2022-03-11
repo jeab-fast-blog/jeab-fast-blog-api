@@ -26,12 +26,7 @@ public class Attachment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition ="int not null auto_increment")
     private Integer id;
-    /**
-     * 名称
-     */
-    @ApiModelProperty(value = "名称")
-    @Column(name = "name", columnDefinition = "varchar(64) comment '名称'")
-    private String name;
+
     /**
      * 是否删除
      */
@@ -55,13 +50,43 @@ public class Attachment implements Serializable {
      * 文件大小
      */
     @ApiModelProperty(value = "文件大小")
-    @Column(name = "size", columnDefinition = "int comment '创建时间'")
-    private Integer size;
+    @Column(name = "size", columnDefinition = "long comment '创建时间'")
+    private Long size;
     /**
      * 类型
      */
     @ApiModelProperty(value = "类型")
-    @Column(name = "file_type", columnDefinition = "int comment '创建时间'")
+    @Column(name = "file_type", columnDefinition = "int comment '类型'")
     private String fileType;
+
+
+    /**
+     * 文件全名
+     */
+    @ApiModelProperty(value = "文件全名")
+    @Column(name = "original_filename", columnDefinition = "varchar(255) not null comment '文件全名'")
+    private String originalFilename;
+
+    /**
+     * 新文件名
+     */
+    @ApiModelProperty(value = "新文件名")
+    @Column(name = "filename", columnDefinition = "varchar(255) not null comment '文件全名'")
+    private String filename;
+    /**
+     * 文件的后缀
+     */
+    @ApiModelProperty(value = "文件的后缀")
+    @Column(name = "suffix", columnDefinition = "varchar(64) not null comment '文件的后缀'")
+    private String suffix;
+
+    /**
+     * 文件路径
+     */
+    @ApiModelProperty(value = "文件路径")
+    @Column(name = "filePath", columnDefinition = "varchar(255) not null comment '文件路径'")
+    private String filePath;
+
+
 
 }
