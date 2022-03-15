@@ -57,4 +57,10 @@ public class TagPageVo implements Serializable {
     @ApiModelProperty(value = "摘要")
     private String description;
 
+    /**
+     * 文章数量
+     */
+    @ApiModelProperty(value = "文章数量")
+    private Integer postNum;
+
 }

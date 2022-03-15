@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="me.xueyao.mapper.CustomPageMapper">
     <select id="findAll" resultType="me.xueyao.domain.vo.CustomPagePageVo">
-        SELECT A.*,B.commentNum as articleNum FROM PAGE A
-           LEFT JOIN (SELECT category_id,count(*) as postNum FROM COMMENT GROUP BY category_id) AS B ON A.ID = B.page_id
+        SELECT A.*,B.commentNum FROM CUSTOM_PAGE A
+        LEFT JOIN (SELECT resource_id,count(*) as commentNum
+               FROM COMMENT WHERE type = 2 GROUP BY resource_id) AS B ON A.ID = B.resource_id
     </select>
 </mapper>

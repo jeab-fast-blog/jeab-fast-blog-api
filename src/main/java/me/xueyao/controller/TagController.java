@@ -6,7 +6,6 @@ import me.xueyao.base.R;
 import me.xueyao.domain.dto.TagAddDto;
 import me.xueyao.domain.dto.TagModifyDto;
 import me.xueyao.service.TagService;
-import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,7 +52,8 @@ public class TagController {
 
     @ApiOperation(value = "查看标签列表")
     @GetMapping("/list")
-    public R list(Pageable pageable) {
-        return tagService.list(pageable);
+    public R list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                  @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+        return tagService.list(pageNum, pageSize);
     }
 }

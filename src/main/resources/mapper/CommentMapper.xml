@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="me.xueyao.mapper.CommentMapper">
-    <select id="findAll" resultType="me.xueyao.domain.vo.CommentPageVo"></select>
+    <select id="findAll" resultType="me.xueyao.domain.vo.CommentPageVo">
+        SELECT A.*,IFNULL(B.post_title ,C.page_title) AS articleTitle  FROM COMMENT AS A
+            LEFT JOIN POST AS B ON A.RESOURCE_ID = B.ID AND A.TYPE=1
+            LEFT JOIN CUSTOM_PAGE AS C ON A.RESOURCE_ID = C.ID AND A.TYPE = 2
+    </select>
 </mapper>

@@ -1,19 +1,21 @@
 package me.xueyao.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import me.xueyao.base.R;
-import me.xueyao.domain.entity.Tag;
 import me.xueyao.domain.dto.TagAddDto;
 import me.xueyao.domain.dto.TagModifyDto;
+import me.xueyao.domain.entity.Tag;
+import me.xueyao.domain.vo.TagPageVo;
+import me.xueyao.mapper.TagMapper;
 import me.xueyao.repository.TagRepository;
 import me.xueyao.service.TagService;
 import me.xueyao.util.BeanCompareUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -24,6 +26,8 @@ import java.util.Optional;
 public class TagServiceImpl implements TagService {
     @Resource
     private TagRepository tagRepository;
+    @Resource
+    private TagMapper tagMapper;
     @Override
     public R add(TagAddDto tagAddDto) {
         Example<Tag> tagExample = Example.of(new Tag().setName(tagAddDto.getName()));
@@ -72,8 +76,9 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public R list(Pageable pageable) {
-        List<Tag> tagList = tagRepository.findAll();
-        return R.ofSuccess("查询成功", tagList);
+    public R list(Integer pageNum, Integer pageSize) {
+        Page<TagPageVo> page = new Page<>(pageNum, pageSize);
+        IPage<TagPageVo> iPage = tagMapper.findAll(page);
+        return R.ofSuccess("查询成功", iPage);
     }
 }

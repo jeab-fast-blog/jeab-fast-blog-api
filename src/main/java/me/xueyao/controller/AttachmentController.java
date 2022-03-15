@@ -33,7 +33,10 @@ public class AttachmentController {
 
     @ApiOperation(value = "上传附件")
     @PostMapping("/upload")
-    public R upload(@RequestParam MultipartFile file) {
+    public R upload(MultipartFile file) {
+        if (file.isEmpty()) {
+            return R.ofParamError("文件不能为空");
+        }
         return attachmentService.upload(file);
     }
 

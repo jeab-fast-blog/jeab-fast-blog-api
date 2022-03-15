@@ -54,7 +54,10 @@ public class CommentPageVo implements Serializable {
      * 内容ID
      */
     @ApiModelProperty(value = "内容ID")
-    private Integer contentId;
+    private Integer resourceId;
+
+    @ApiModelProperty(value = "文章标题")
+    private String articleTitle;
     /**
      * 评论类型 1文章 2页面
      */

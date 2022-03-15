@@ -1,7 +1,7 @@
 package me.xueyao.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.lang.UUID;
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
@@ -88,7 +88,7 @@ public class AttachmentServiceImpl implements AttachmentService {
     public R upload(MultipartFile file) {
         String originalFilename = file.getOriginalFilename();
         String suffix = originalFilename.substring(originalFilename.lastIndexOf(".")-1);
-        String filename = UUID.fastUUID() + suffix;
+        String filename = IdUtil.fastUUID() + suffix;
         String filePath = path + filename;
         long size = file.getSize();
         File uploadFile = new File(filePath);

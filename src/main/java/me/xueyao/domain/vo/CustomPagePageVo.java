@@ -71,5 +71,7 @@ public class CustomPagePageVo implements Serializable {
      */
     private String alias;
 
+    private Integer commentNum;
+
 
 }

@@ -64,11 +64,11 @@ public class Comment implements Serializable {
     @Column(name = "parent_id", columnDefinition = "int comment '上层ID'")
     private Integer parentId;
     /**
-     * 内容ID
+     * 资源ID
      */
-    @ApiModelProperty(value = "内容ID")
-    @Column(name = "content_id", columnDefinition = "int comment '内容ID'")
-    private Integer contentId;
+    @ApiModelProperty(value = "资源ID")
+    @Column(name = "resource_id", columnDefinition = "int comment '资源ID'")
+    private Integer resourceId;
     /**
      * 评论类型 1文章 2页面
      */

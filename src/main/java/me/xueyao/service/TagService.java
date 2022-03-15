@@ -3,7 +3,6 @@ package me.xueyao.service;
 import me.xueyao.base.R;
 import me.xueyao.domain.dto.TagAddDto;
 import me.xueyao.domain.dto.TagModifyDto;
-import org.springframework.data.domain.Pageable;
 
 /**
  * @author Simon.Xue
@@ -39,8 +38,9 @@ public interface TagService {
     R getDetail(Integer tagId);
     /**
      * 标签列表
-     * @param pageable
+     * @param pageNum
+     * @param pageSize
      * @return
      */
-    R list(Pageable pageable);
+    R list(Integer pageNum, Integer pageSize);
 }
