@@ -3,6 +3,8 @@ package me.xueyao.base;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @description: 返回对象
  * @author: Simon.Xue
@@ -10,7 +12,7 @@ import lombok.NoArgsConstructor;
  **/
 @Getter
 @NoArgsConstructor
-public class R {
+public class R implements Serializable {
 
     private Integer code;
     private String msg;
