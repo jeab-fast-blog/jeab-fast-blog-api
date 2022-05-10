@@ -1,6 +1,7 @@
 package me.xueyao.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import me.xueyao.base.R;
 import me.xueyao.domain.dto.RoleAddDto;
 import me.xueyao.domain.dto.RoleModifyDto;
@@ -23,26 +24,31 @@ public class RoleController {
     @Resource
     private RoleService roleService;
 
+    @ApiOperation(value = "添加角色")
     @PostMapping("/add")
     public R add(@Validated @RequestBody RoleAddDto roleAddDto) {
         return roleService.add(roleAddDto);
     }
 
+    @ApiOperation(value = "更新角色")
     @PostMapping("/modify")
     public R modify(@Validated @RequestBody RoleModifyDto roleModifyDto) {
         return roleService.modify(roleModifyDto);
     }
 
+    @ApiOperation(value = "删除角色")
     @GetMapping("/delete")
     public R delete(@RequestParam("roleId") Integer roleId) {
         return roleService.delete(roleId);
     }
 
+    @ApiOperation(value = "获取角色详情")
     @GetMapping("/getDetail")
     public R getDetail(@RequestParam("roleId") Integer roleId) {
         return roleService.getDetail(roleId);
     }
 
+    @ApiOperation(value = "角色列表")
     @GetMapping("/list")
     public R list(Pageable pageable) {
         return roleService.list(pageable);
