@@ -4,7 +4,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.xueyao.base.R;
 import me.xueyao.domain.dto.LoginDto;
+import me.xueyao.domain.dto.RegisterDto;
 import me.xueyao.service.UserService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -50,5 +52,15 @@ public class LoginController {
     @PostMapping("/logout")
     public R logout(HttpServletRequest request) {
         return userService.logout(request);
+    }
+
+    /**
+     * 注册
+     * @return
+     */
+    @ApiOperation(value = "注册")
+    @PostMapping("/register")
+    public R register(@Validated @RequestBody RegisterDto registerDto) {
+        return userService.register(registerDto);
     }
 }

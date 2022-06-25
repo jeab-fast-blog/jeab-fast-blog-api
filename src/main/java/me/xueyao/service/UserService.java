@@ -2,6 +2,7 @@ package me.xueyao.service;
 
 import me.xueyao.base.R;
 import me.xueyao.domain.dto.LoginDto;
+import me.xueyao.domain.dto.RegisterDto;
 import me.xueyao.domain.dto.UserAddDto;
 import me.xueyao.domain.dto.UserModifyDto;
 import org.springframework.data.domain.Pageable;
@@ -65,4 +66,11 @@ public interface UserService {
      * @return
      */
     R list(Pageable pageable);
+
+    /**
+     * 注册
+     * @param registerDto
+     * @return
+     */
+    R register(RegisterDto registerDto);
 }

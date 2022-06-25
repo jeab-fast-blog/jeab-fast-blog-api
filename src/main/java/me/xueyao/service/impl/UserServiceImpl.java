@@ -1,13 +1,17 @@
 package me.xueyao.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.crypto.SecureUtil;
 import me.xueyao.base.R;
 import me.xueyao.constant.Constant;
-import me.xueyao.domain.entity.User;
 import me.xueyao.domain.dto.LoginDto;
+import me.xueyao.domain.dto.RegisterDto;
 import me.xueyao.domain.dto.UserAddDto;
 import me.xueyao.domain.dto.UserModifyDto;
+import me.xueyao.domain.entity.User;
 import me.xueyao.domain.vo.UserVO;
 import me.xueyao.repository.RoleRepository;
 import me.xueyao.repository.UserRepository;
@@ -99,12 +103,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public R register(RegisterDto registerDto) {
+        User user = new User();
+        BeanUtil.copyProperties(registerDto, user);
+        String username = registerDto.getUsername();
+        String password = registerDto.getPassword();
+        String rePassword = registerDto.getRePassword();
+        Assert.isTrue(password.equals(rePassword), "两个密码必须相同");
+        String salt = RandomUtil.randomString(8);
+        user.setSalt(salt);
+        user.setPassword(SecureUtil.sha1(username + password + salt));
+        userRepository.save(user);
+        return R.ofSuccess("注册成功");
+    }
+
+    @Override
     public R login(LoginDto loginDto) {
         User user = userRepository.findByUsername(loginDto.getUsername());
         if (null == user) {
             return R.ofParamError("用户名不存在");
         }
-        if (!user.getPassword().equals(loginDto.getPassword())) {
+        String password = SecureUtil.sha1(loginDto.getUsername() + loginDto.getPassword() + user.getSalt());
+        if (!user.getPassword().equals(password)) {
             return R.ofParamError("用户名或密码不正确");
         }
         UserVO userVO = BeanUtil.copyProperties(user, UserVO.class);
