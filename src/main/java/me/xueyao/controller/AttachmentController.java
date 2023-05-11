@@ -3,10 +3,7 @@ package me.xueyao.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.xueyao.base.R;
-import me.xueyao.domain.dto.AttachmentAddDto;
-import me.xueyao.domain.dto.AttachmentModifyDto;
 import me.xueyao.service.AttachmentService;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,11 +22,6 @@ public class AttachmentController {
     @Resource
     private AttachmentService attachmentService;
 
-    @ApiOperation(value = "创建附件")
-    @PostMapping("/add")
-    public R add(@Validated @RequestBody AttachmentAddDto attachmentAddDto) {
-        return attachmentService.add(attachmentAddDto);
-    }
 
 
     @ApiOperation(value = "上传附件")
@@ -39,13 +31,6 @@ public class AttachmentController {
             return R.ofParamError("文件不能为空");
         }
         return attachmentService.upload(file);
-    }
-
-
-    @ApiOperation(value = "修改附件")
-    @PostMapping("/modify")
-    public R modify(@Validated @RequestBody AttachmentModifyDto attachmentModifyDto) {
-        return attachmentService.modify(attachmentModifyDto);
     }
 
     @ApiOperation(value = "删除附件")

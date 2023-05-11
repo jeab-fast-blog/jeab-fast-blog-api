@@ -6,14 +6,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import me.xueyao.base.R;
-import me.xueyao.domain.dto.AttachmentAddDto;
 import me.xueyao.domain.dto.AttachmentModifyDto;
 import me.xueyao.domain.entity.Attachment;
 import me.xueyao.domain.vo.AttachmentPageVo;
 import me.xueyao.mapper.AttachmentMapper;
 import me.xueyao.repository.AttachmentRepository;
 import me.xueyao.service.AttachmentService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,25 +35,8 @@ public class AttachmentServiceImpl implements AttachmentService {
     @Resource
     private AttachmentMapper attachmentMapper;
 
-    @Override
-    public R add(AttachmentAddDto attachmentAddDto) {
-        Attachment attach = new Attachment();
-        BeanUtils.copyProperties(attachmentAddDto, attach);
-        attachmentRepository.save(attach);
-        log.info("添加成功");
-        return R.ofSuccess("添加成功");
-    }
 
-    @Override
-    public R modify(AttachmentModifyDto attachmentModifyDto) {
-        Integer attachId = attachmentModifyDto.getId();
-        Optional<Attachment> attachOptional = attachmentRepository.findById(attachId);
-        Attachment attach = attachOptional.get();
-        BeanUtil.copyProperties(attachmentModifyDto, attach);
-        attachmentRepository.save(attach);
-        log.info("更新附件成功");
-        return R.ofSuccess("更新附件成功");
-    }
+
 
     @Override
     public R delete(Integer attachId) {
