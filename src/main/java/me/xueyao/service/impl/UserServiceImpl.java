@@ -3,14 +3,13 @@ package me.xueyao.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.SecureUtil;
+import lombok.extern.slf4j.Slf4j;
 import me.xueyao.base.R;
 import me.xueyao.constant.Constant;
-import me.xueyao.domain.dto.LoginDto;
-import me.xueyao.domain.dto.RegisterDto;
-import me.xueyao.domain.dto.UserAddDto;
-import me.xueyao.domain.dto.UserModifyDto;
+import me.xueyao.domain.dto.*;
 import me.xueyao.domain.entity.User;
 import me.xueyao.domain.vo.UserVO;
 import me.xueyao.repository.RoleRepository;
@@ -35,6 +34,7 @@ import java.util.Optional;
  * @author Simon.Xue
  * @date 1/28/21 2:50 PM
  **/
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
     @Resource
@@ -115,6 +115,21 @@ public class UserServiceImpl implements UserService {
         user.setPassword(SecureUtil.sha1(username + password + salt));
         userRepository.save(user);
         return R.ofSuccess("注册成功");
+    }
+
+    @Override
+    public R forgetPassword(ForgetPasswordDto forgetPasswordDto) {
+        String email = forgetPasswordDto.getEmail();
+        User user = userRepository.findByEmail(email);
+        if (ObjectUtil.isEmpty(user)) {
+            log.error("邮箱地址不存在，{}", email);
+            return R.ofParamError("邮箱不存在!");
+        }
+
+        //发送忘记密码邮件操作
+
+        log.info("发送邮件成功");
+        return R.ofSuccess("发送邮件成功");
     }
 
     @Override

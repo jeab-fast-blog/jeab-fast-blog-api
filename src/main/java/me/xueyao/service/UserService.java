@@ -1,10 +1,7 @@
 package me.xueyao.service;
 
 import me.xueyao.base.R;
-import me.xueyao.domain.dto.LoginDto;
-import me.xueyao.domain.dto.RegisterDto;
-import me.xueyao.domain.dto.UserAddDto;
-import me.xueyao.domain.dto.UserModifyDto;
+import me.xueyao.domain.dto.*;
 import org.springframework.data.domain.Pageable;
 
 import javax.servlet.http.HttpServletRequest;
@@ -73,4 +70,11 @@ public interface UserService {
      * @return
      */
     R register(RegisterDto registerDto);
+
+    /**
+     * 忘记密码
+     * @param forgetPasswordDto
+     * @return
+     */
+    R forgetPassword(ForgetPasswordDto forgetPasswordDto);
 }
